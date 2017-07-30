@@ -1,16 +1,21 @@
 package com.mwkim.restwebservices.models;
 
-import javax.validation.constraints.Past;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
+@ApiModel(description = "All details about the user")
 public class User {
 
     private Integer id;
 
     @Size(min = 2, message = "Name should have at least 2 characters.")
+    @ApiModelProperty(notes = "Name should contain at least 2 characters.")
     private String name;
 
+    @ApiModelProperty(notes = "Birth date should be in the past.")
     private LocalDateTime birthDate;
 
     protected User() {}
